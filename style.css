@@ -1,0 +1,27 @@
+header {
+    color:  whitesmoke;
+    text-align:  center;
+    padding-top:  7em;
+    padding-bottom:  2em;
+}
+
+body {
+    background-image: url('image-1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.quoteDiv  {
+    text-align:  center;
+    color:  whitesmoke;
+    font-weight:  200;
+    font-size:  5em;
+}
+
+body p {
+    text-align:  center;
+    font-size:  2em;
+    color:  whitesmoke;
+}
