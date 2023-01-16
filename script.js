@@ -1,14 +1,34 @@
-var quotes = ['Even monkeys can fall from trees', 'Appear weak when you are strong, and strong when you are weak', 'Fall seven times, stand up eight', 'The best time to plant a tree was a hundred years ago. The second best time is now.', 'Consideration for others is the basic of a good life, a good society.', 'Everything has beauty, but not everyone sees it.', "Don't become a Buddhist: the world doesn't need more Buddhists. Practice compassion: the world needs more compassion.", "It is precisely when we have suffered defeat that we can determine to win and open the path to future victory.", "Emptiness, which is conceptually liable to be mistaken for sheer nothingness, is in fact the reservoir of infinite possibilities."];
-var sayers = ['Japanese Proverb',  'Sun Tzu', 'Japanese Proverb', 'Japanese Proverb', 'Kong Fuzi (Confucious)', 'Kong Fuzi (Confucious)',  'Tenzin Gyatso (14th Dalai Lama)',  'Daisaku Ikeda',  'Daisetsu Teitaro Suzuki']
+/* This took me far too long (I have little/no experience in JS) */
 
-var quoteText = document.getElementById("quote");
-var sayerText = document.getElementById("sayer");
-var randint = Math.floor(Math.random * quotes.length);
+var quoteTable = [
+    "Even monkeys can fall from trees", "Anonymous (Japanese Proverb)",
+    "Appear weak when you are strong, and strong when you are weak", "Sun Tzu",
+    "Fall seven times, stand up eight", "Anonymous (Japanese Proverb)",
+    "The best time to plant a tree was a hundred years ago. The second best time is now.", "Anonymous (Japanese Proverb)",
+    "Consideration for others is the basic of a good life, a good society.", "Kong Fuzi (Confucious)",
+    "Everything has beauty, but not everyone sees it.", "Kong Fuzi (Confucious)",
+    "Don't become a Buddhist: the world doesn't need more Buddhists. Do practice compassion: the world needs more compassion.", "Tenzin Gyatso (14th Dalai Lama)",
+    "It is precisely when we have suffered defeat that we can determine to win and open the path to future victory.", "Daisaku Ikeda",
+    "Emptiness, which is conceptually liable to be mistaken for sheer nothingness, is in fact the reservoir of infinite possibilities.", "Daisetsu Teitaro Suzuki"
+];
 
-function quoteGenerate() {
-    quoteText.textContent= 'quoteText';
+const quote = document.querySelector("#quote");
+const sayer = document.querySelector("#sayer");
+const rand = randint(quoteTable.length);
+
+function randint(max) {
+    return Math.floor(Math.random() * max);
 }
 
-function sayerGenerate() {
-    sayerText.textContent= 'sayerText';    
-}
+/* Prevent table from bugging out at boundaries by using *
+ * different logic for odd and even */
+
+if (rand % 2 == 0) {
+    quote.innerHTML = quoteTable[parseInt(rand)];
+    sayer.innerHTML = quoteTable[parseInt(rand) + 1];
+};
+
+if (rand % 2 == 1) {
+    quote.innerHTML = quoteTable[parseInt(rand) - 1];
+    sayer.innerHTML = quoteTable[parseInt(rand)];
+};
